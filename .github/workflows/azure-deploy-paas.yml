@@ -43,3 +43,13 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Microsoft Teams (Generic)
+      uses: aliencube/microsoft-teams-actions@v0.8.0
+      with:
+        webhook-uri: https://outlook.office.com/webhook/a166f05f-4ee6-4e1c-ac5e-bf28c5a0dbe2@9c9d8823-ab9e-4ac4-8251-32c4a7ae50d5/IncomingWebhook/bc64dc88498343c888385b6ae0965ed2/10a78cce-ec22-4726-8478-4eb1906192a5
+        title: Livraison ${{ env.AZURE_WEBAPP_NAME }}
+        summary: summary | mettre le num du build
+        text: Nouvelle livraison | text
+        # theme-color: <Message Theme Color>
+        sections: '[{ "activityTitle": "hello world" }, { ... }]'
+        actions: '[{ "@type": "OpenUri", "name": "lorem ipsum", "targets": [{ "os": "default", "uri": "https://localhost" }] }, { ... }]'
