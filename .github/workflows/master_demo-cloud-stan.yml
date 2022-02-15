@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: "16.x"
 
       - name: npm install, build, and test
         run: |
@@ -37,8 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      name: "Production"
+      # url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: "https://webapp.demo.maif.io"
 
     steps:
       - name: Download artifact from build job
@@ -46,11 +47,11 @@ jobs:
         with:
           name: node-app
 
-      - name: 'Deploy to Azure Web App'
+      - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'demo-cloud-stan'
-          slot-name: 'Production'
+          app-name: "demo-cloud-stan"
+          slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0F9569E00D1A4B2B943F5794ECB7BCB8 }}
           package: .
