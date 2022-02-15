@@ -10,19 +10,19 @@ You can use these commands to install, test, and run the app locally. (Not Requi
 
 ### Install
 
-```
+```js
 npm install
 ```
 
 ### Test
 
-```
+```js
 npm test
 ```
 
 ### Start
 
-```
+```js
 npm start
 ```
 
